@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'AWS
+
+  Sample SAM Template for AWS
+
+  '
+Globals:
+  Function:
+    Timeout: 20
+Resources:
+  TestingAppRev:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: TestingAppRev
+      Role: arn:aws:iam::987450053827:role/lamda_basic_role
+      CodeUri: target/app-1.0.0.jar
+      Handler: com.amazonaws.lambda.app.LambdaFunctionHandler::handleRequest
+      Runtime: java8
+      MemorySize: 512
+      Environment:
+        Variables:
+          PARAM1: VALUE
+      Events:
+        ReviewerApprove:
+          Type: Api
+          Properties:
+            Path: /review/{id}
+            Method: get
+        Approve:
+          Type: Api
+          Properties:
+            Path: /approve/{id}
+            Method: get

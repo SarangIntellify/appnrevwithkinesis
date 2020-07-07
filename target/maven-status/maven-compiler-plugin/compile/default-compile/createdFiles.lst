@@ -1,0 +1,5 @@
+com\amazonaws\lambda\app\LambdaFunctionHandler.class
+com\amazonaws\lambda\app\Response.class
+com\amazonaws\lambda\app\Service.class
+com\amazonaws\lambda\app\Request.class
+com\amazonaws\lambda\app\Mail.class
